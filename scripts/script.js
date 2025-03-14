@@ -49,9 +49,14 @@ let deckElement = document.getElementById("deck");
 
 function drawCard() {
     const card = deck.getCard();
-    if (card)
-        deckElement.textContent = card.combo();
-    else
+    const cardCombo = card.combo();
+    if (card) { 
+        if (cardCombo.includes("♥") || cardCombo.includes("♦"))
+            deckElement.style.color = "red";
+        else 
+            deckElement.style.color = "black";
+        deckElement.textContent = cardCombo;
+    } else
         deckElement.textContent = "No more cards!";
 }
 
