@@ -46,16 +46,19 @@ console.table(deck.pack);
 
 let drawBtn = document.getElementById("draw-btn");
 let deckElement = document.getElementById("deck");
+let body = document.body;
 
 function drawCard() {
     const card = deck.getCard();
-    const cardCombo = card.combo();
     if (card) { 
+        const cardCombo = card.combo();
+        let divElement = document.createElement("div");
         if (cardCombo.includes("♥") || cardCombo.includes("♦"))
-            deckElement.style.color = "red";
+            divElement.style.color = "red";
         else 
-            deckElement.style.color = "black";
-        deckElement.textContent = cardCombo;
+            divElement.style.color = "black";
+        divElement.textContent = cardCombo;
+        body.appendChild(divElement);
     } else
         deckElement.textContent = "No more cards!";
 }
