@@ -44,7 +44,6 @@ let deck = new Deck();
 deck.shuffle();
 console.table(deck.pack);
 
-let drawBtn = document.getElementById("draw-btn");
 let deckElement = document.getElementById("deck");
 let body = document.body;
 
@@ -53,14 +52,16 @@ function drawCard() {
     if (card) { 
         const cardCombo = card.combo();
         let divElement = document.createElement("div");
+        divElement.className = "card";
         if (cardCombo.includes("♥") || cardCombo.includes("♦"))
             divElement.style.color = "red";
         else 
-            divElement.style.color = "black";
-        divElement.textContent = cardCombo;
-        body.appendChild(divElement);
+        divElement.style.color = "black";
+    divElement.textContent = cardCombo;
+    body.appendChild(divElement);
     } else
         deckElement.textContent = "No more cards!";
 }
 
+let drawBtn = document.getElementById("draw-btn");
 drawBtn.addEventListener("click", drawCard);

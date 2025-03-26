@@ -13,10 +13,10 @@ body {
     height: 120px;
     border: 1px solid black;
     border-radius: 10px;
-    text-align: center;
     font-size: 20px;
     line-height: 120px;
     margin: 5px;
     background-color: white;
     cursor: pointer;
+    box-shadow: .2em .2em .5em #333;
 }
